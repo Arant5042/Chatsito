@@ -1,11 +1,17 @@
-
+import { useState} from "react"
 
 function App () {
+  const [inputMessage, setInputMessage] = useState("")
+
+  const handdleSubmit = (e) => {
+    e.preventDefault()
+    //cómo se envían los mensajes ...
+  }
   return (
     <div>
-      <form>
-        <input/>
-        <button>Enviar</button>
+      <form onSubmit={handleSubmit}>
+        <input onChange={(e) => setInputMessage(e.target.value)}/>
+        <button type="submit">Enviar</button>
       </form>
     </div>
   )
