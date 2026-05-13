@@ -21,8 +21,12 @@ function App () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const hora = new Date().toLocaleTimeString()
     //cómo se envían los mensajes ...
-    socket.emit("mensaje", {user, inputMessage})
+    socket.emit("mensaje", {user, inputMessage, hora})
+
+    
   }
   return (
     <div>
@@ -32,7 +36,10 @@ function App () {
       </form>
 
       { 
-      mensajeRecibido.map( mensaje => <div>{mensaje.user} : {mensaje.inputMessage}</div> ) 
+      mensajeRecibido.map( mensaje => 
+      <div>
+        {mensaje.user} : {mensaje.inputMessage} | {mensaje.hora}
+        </div> ) 
       }
 
     </div>
