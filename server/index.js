@@ -15,7 +15,7 @@ const mensajes = []
 io.on("connection", (socket) => {
     console.log("Alguien se conectó")
     //Mensajes a una persona
-    socket.emit("bienvenida", "Yamete Cudasai")
+    socket.emit("mensaje", mensajes)
 
     socket.on("mensaje", (mensaje) => {
         //A todos los que estén conectados
